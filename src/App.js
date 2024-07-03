@@ -13,12 +13,33 @@ ChartJS.register(
 
 function App() {
   const [chartData, setChartData] = useState(null);
+  const [fileName, setFileName] = useState("")
 
-  const loadData = () => {
-    fetch('./data/rfmData.json')
-      .then(response => response.json())
-      .then(data => renderChart(data))
-      .catch(error => console.error('Error al cargar los datos:', error));
+  const loadData = async () => {
+    try{
+      const response = await fetch('./data/rfmData.json');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      renderChart(data);
+    } catch (error) {
+      console.error('Error al cargar los datos', error);
+    }
+  }
+    
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name)
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const data = JSON.parse(e.target.result);
+        renderChart(data);
+      };
+      reader.readAsText(file);
+    }
   };
 
   const renderChart = (rfmData) => {
@@ -65,6 +86,13 @@ function App() {
           <section id="upload-section">
             <h2>Cargar Datos</h2>
             <button onClick={loadData}>Cargar Datos</button>
+            <div className="file-upload">
+              <label htmlFor="file-input" className="file-upload-label">
+                Seleccionar Archivo
+              </label>
+              <input id="file-input" type="file" accept=".json" onChange={handleFileUpload} className="file-upload-input" />
+              <span className="file-upload-name">{fileName}</span>
+            </div>
           </section>
           <section id="charts-section">
             <h2>Visualización de Datos</h2>

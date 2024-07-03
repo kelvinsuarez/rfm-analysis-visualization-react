@@ -1,7 +1,7 @@
 [
     {
         "customerID": 1,
-        "recency": 5,
+        "recency": 200,
         "frequency": 10,
         "monetary": 500
     },
