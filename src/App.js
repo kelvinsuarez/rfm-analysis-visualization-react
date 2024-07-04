@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import Papa from 'papaparse';
+import TableauDashboard from './TableauDashboard';
 import logoFooter from './images/bugbusters.jpg';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
@@ -16,6 +17,7 @@ ChartJS.register(
 function App() {
   const [chartData, setChartData] = useState(null);
   const [fileName, setFileName] = useState("");
+  const url = "https://public.tableau.com/app/profile/alfredo.lopez2632/viz/Dashboard_sprint_12/Dashboard1";
 
   const loadData = async () => {
     try {
@@ -104,6 +106,7 @@ function App() {
               <input id="file-input" type="file" accept=".json,.csv" onChange={handleFileUpload} className="file-upload-input" />
               <span className="file-upload-name">{fileName}</span>
             </div>
+            <TableauDashboard url={url} />
           </section>
           <section id="charts-section">
             <h2>Visualización de Datos</h2>
@@ -131,6 +134,8 @@ function App() {
                   }}
                 />
               )}
+            </div>
+            <div>
             </div>
           </section>
         </main>

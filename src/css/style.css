@@ -53,6 +53,11 @@ h2 {
     color: #333;
 }
 
+a {
+  color:white;
+  text-decoration: none;
+}
+
 button {
     margin: 1em 0;
     padding: 0.5em 1em;
@@ -71,6 +76,26 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.upload-section__buton-Redirect{
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: #e19f10;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  display: inline-block;
+  font-family: Azonix, sans-serif;
+  font-size: 16px;
+  border: none;
+  box-shadow: -2px 2px 5px #a77301;
+  transition: all 0.2s ease;
+}
+
+.upload-section__buton-Redirect:hover {
+  background-color: #d2970d;
 }
 
 canvas {
