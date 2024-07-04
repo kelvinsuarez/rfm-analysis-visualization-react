@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import logoFooter from './images/bugbusters.jpg'
+import Papa from 'papaparse';
+import logoFooter from './images/bugbusters.jpg';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(
@@ -14,11 +15,11 @@ ChartJS.register(
 
 function App() {
   const [chartData, setChartData] = useState(null);
-  const [fileName, setFileName] = useState("")
+  const [fileName, setFileName] = useState("");
 
   const loadData = async () => {
-    try{
-      const response = await fetch('data/rfmData.json');
+    try {
+      const response = await fetch('/data/rfmData.json');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -27,24 +28,33 @@ function App() {
     } catch (error) {
       console.error('Error al cargar los datos', error);
     }
-  }
-    
+  };
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setFileName(file.name)
+      setFileName(file.name);
       const reader = new FileReader();
       reader.onload = (e) => {
-        const data = JSON.parse(e.target.result);
-        renderChart(data);
+        if (file.type === 'application/json') {
+          const data = JSON.parse(e.target.result);
+          renderChart(data);
+        } else if (file.type === 'text/csv') {
+          Papa.parse(e.target.result, {
+            header: true,
+            dynamicTyping: true,
+            complete: (results) => {
+              renderChart(results.data);
+            },
+          });
+        }
       };
       reader.readAsText(file);
     }
   };
 
   const renderChart = (rfmData) => {
-    const labels = rfmData.map(customer => `Cliente ${customer.customerID}`);
+    const labels = rfmData.map((customer, index) => `Cliente ${customer.customerID || index + 1}`);
     const recencyData = rfmData.map(customer => customer.recency);
     const frequencyData = rfmData.map(customer => customer.frequency);
     const monetaryData = rfmData.map(customer => customer.monetary);
@@ -57,23 +67,23 @@ function App() {
           data: recencyData,
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255, 99, 132, 1)',
-          borderWidth: 1
+          borderWidth: 1,
         },
         {
           label: 'Frequency',
           data: frequencyData,
           backgroundColor: 'rgba(54, 162, 235, 0.2)',
           borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
+          borderWidth: 1,
         },
         {
           label: 'Monetary',
           data: monetaryData,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }
-      ]
+          borderWidth: 1,
+        },
+      ],
     });
   };
 
@@ -91,7 +101,7 @@ function App() {
               <label htmlFor="file-input" className="file-upload-label">
                 Seleccionar Archivo
               </label>
-              <input id="file-input" type="file" accept=".json" onChange={handleFileUpload} className="file-upload-input" />
+              <input id="file-input" type="file" accept=".json,.csv" onChange={handleFileUpload} className="file-upload-input" />
               <span className="file-upload-name">{fileName}</span>
             </div>
           </section>
@@ -127,7 +137,7 @@ function App() {
         <footer className="footer">
           <img className="footer__logo" src={logoFooter} alt="logo BugsBusters"/>
           <p className="footer__text">
-          © &nbsp;&nbsp;&nbsp; •Isabel Domínguez •Kelvin Suárez •Alfredo López •Alma Linares •Héctor Morales •Natalia Lopera 
+            © &nbsp;&nbsp;&nbsp; •Isabel Domínguez •Kelvin Suárez •Alfredo López •Héctor Morales •Natalia Lopera 
             •Olaf de Jesús •Sergio Anaya
           </p>
         </footer>

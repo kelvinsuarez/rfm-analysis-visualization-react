@@ -104,6 +104,12 @@ canvas {
   .file-upload-input {
     display: none;
   }
+
+  .file-upload-name {
+    display: flex;
+    align-items: center;
+    font-size: 8px;
+  }
   
 
   .footer {
