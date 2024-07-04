@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/rfm-analysis-visualization-react/static/css/main.16b6655a.css",
+    "main.js": "/rfm-analysis-visualization-react/static/js/main.622a4a90.js",
+    "static/js/453.2aa38921.chunk.js": "/rfm-analysis-visualization-react/static/js/453.2aa38921.chunk.js",
+    "static/media/bugbusters.jpg": "/rfm-analysis-visualization-react/static/media/bugbusters.620bf74e0815a7a80a33.jpg",
+    "static/media/Azonix.otf": "/rfm-analysis-visualization-react/static/media/Azonix.9091792cb1720a8c6ea0.otf",
+    "index.html": "/rfm-analysis-visualization-react/index.html",
+    "main.16b6655a.css.map": "/rfm-analysis-visualization-react/static/css/main.16b6655a.css.map",
+    "main.622a4a90.js.map": "/rfm-analysis-visualization-react/static/js/main.622a4a90.js.map",
+    "453.2aa38921.chunk.js.map": "/rfm-analysis-visualization-react/static/js/453.2aa38921.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16b6655a.css",
+    "static/js/main.622a4a90.js"
+  ]
+}
