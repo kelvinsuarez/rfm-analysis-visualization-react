@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import logoFooter from './images/bugbusters.jpg'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(
@@ -17,7 +18,7 @@ function App() {
 
   const loadData = async () => {
     try{
-      const response = await fetch('../public/data/rfmData.json');
+      const response = await fetch('data/rfmData.json');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -80,7 +81,7 @@ function App() {
     <div className="App">
       <div className="root">
         <header className="App-header">
-          <h1>Visualización RFM</h1>
+          <h1><span className='App-header__v'>V</span>isualización RFM</h1>
         </header>
         <main>
           <section id="upload-section">
@@ -96,20 +97,40 @@ function App() {
           </section>
           <section id="charts-section">
             <h2>Visualización de Datos</h2>
-            {chartData && (
-              <Bar
-                data={chartData}
-                options={{
-                  scales: {
-                    y: {
-                      beginAtZero: true
-                    }
-                  }
-                }}
-              />
-            )}
+            <div style={{ width: '100%' }}> {/* Ajuste para que ocupe el ancho completo */}
+              {chartData && (
+                <Bar
+                  data={chartData}
+                  options={{
+                    indexAxis: 'y',
+                    elements: {
+                      bar: {
+                        borderWidth: 2,
+                      },
+                    },
+                    responsive: true,
+                    plugins: {
+                      legend: {
+                        position: 'right',
+                      },
+                      title: {
+                        display: true,
+                        text: 'Gráfico de Barras',
+                      },
+                    },
+                  }}
+                />
+              )}
+            </div>
           </section>
         </main>
+        <footer className="footer">
+          <img className="footer__logo" src={logoFooter} alt="logo BugsBusters"/>
+          <p className="footer__text">
+          © &nbsp;&nbsp;&nbsp; •Isabel Domínguez •Kelvin Suarez •Alfredo •Alma Linares •Héctor Morales •Natalia Lopera 
+            •Olaf de Jesús •Sergio Anaya
+          </p>
+        </footer>
       </div>
     </div>
   );

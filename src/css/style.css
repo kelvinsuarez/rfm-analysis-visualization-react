@@ -1,14 +1,29 @@
+@font-face {
+    font-family: "Azonix";
+    src: url(../font/Azonix.otf) format("opentype");
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    min-width: 100%;
+    min-height: 100vh;
+  }
+
 .root{
-    background-color: black;
-    
+    background-color: #d0cfcf;
+    flex-wrap: wrap;
+    flex-grow: 1; 
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Azonix, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
-    max-width: 80%;
+    width: 100%;
 }
 
 header {
@@ -16,14 +31,17 @@ header {
     color: white;
     padding: 1em;
     text-align: center;
-    width: 96%;
+    width: auto;
+}
+.App-header__v{
+    color:#45a049;
+    font-size: 130%;
 }
 
 main {
     padding: 1em;
     max-width: 800px;
     margin: auto;
-    
 }
 
 section {
@@ -36,13 +54,19 @@ h2 {
 }
 
 button {
-    display: block;
     margin: 1em 0;
     padding: 0.5em 1em;
     background-color: #4CAF50;
     color: white;
-    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    font-family: Azonix, sans-serif;
+    font-size: 16px;
+    border: none;
+    box-shadow: -2px 2px 5px #2a792d;
+    transition: all 0.2s ease;
 }
 
 button:hover {
@@ -60,6 +84,7 @@ canvas {
 
   .file-upload-label:hover{
     background-color: #006FE5;
+    cursor: pointer;
   }
   
   .file-upload-label {
@@ -69,12 +94,37 @@ canvas {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    box-shadow: -2px 2px 5px #0056b3;
+    transition: all 0.2s ease;
   }
   
   .file-upload-input {
     display: none;
   }
   
-  .file-upload-name {
-    font-style: italic;
+
+  .footer {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: auto;
   }
+  
+  .footer__logo {
+    width: 9%;
+    height: auto;
+    margin-right: 2px;
+  }
+  
+  .footer__text {
+    margin-top: 4%;
+    font-size: 12px; 
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  

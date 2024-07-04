@@ -16,5 +16,11 @@
         "recency": 15,
         "frequency": 2,
         "monetary": 100
+    },
+    {
+        "customerID": 4,
+        "recency": 10,
+        "frequency": 5,
+        "monetary": 250
     }
 ]
