@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import Papa from 'papaparse';
+import Header from './Header';
 import TableauDashboard from './TableauDashboard';
-import logoFooter from './images/bugbusters.jpg';
+import Footer from './Footer';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(
@@ -92,12 +93,10 @@ function App() {
   return (
     <div className="App">
       <div className="root">
-        <header className="App-header">
-          <h1><span className='App-header__v'>V</span>isualización RFM</h1>
-        </header>
+        <Header/>
         <main>
           <section id="upload-section">
-            <h2>Cargar Datos</h2>
+            <h2>Modos de carga</h2>
             <button onClick={loadData}>Cargar Datos</button>
             <div className="file-upload">
               <label htmlFor="file-input" className="file-upload-label">
@@ -139,13 +138,7 @@ function App() {
             </div>
           </section>
         </main>
-        <footer className="footer">
-          <img className="footer__logo" src={logoFooter} alt="logo BugsBusters"/>
-          <p className="footer__text">
-            © &nbsp;&nbsp;&nbsp; •Isabel Domínguez •Kelvin Suárez •Alfredo López •Héctor Morales •Natalia Lopera 
-            •Olaf de Jesús •Sergio Anaya
-          </p>
-        </footer>
+        <Footer/>
       </div>
     </div>
   );
