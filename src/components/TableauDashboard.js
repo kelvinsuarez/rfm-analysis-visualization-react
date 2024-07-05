@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TableauVisualization from './TableauVisualization';
 
-const TableauDashboard = ({ url }) => {
+const TableauDashboard = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <div>
-      <button className='upload-section__buton-Redirect'><a href={url} target="_blank" rel="noopener noreferrer">Ver Dashboard</a></button>
+      <button className='upload-section__buton-Redirect' onClick={toggleVisibility}>
+        {isVisible ? 'Ocultar Dashboard' : 'Ver Dashboard'}
+      </button>
+      {isVisible && <TableauVisualization />}
     </div>
   );
 };

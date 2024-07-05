@@ -13,7 +13,7 @@ function Main ({loadData, handleFileUpload, fileName, chartData, url}) {
                     <input id="file-input" type="file" accept=".json,.csv" onChange={handleFileUpload} className="file-upload-input" />
                     <span className="file-upload-name">{fileName}</span>
                 </div>
-                <TableauDashboard url={url} />
+                <TableauDashboard />
             </section>
             <section id="charts-section">
                 <h2>Visualización de Datos</h2>

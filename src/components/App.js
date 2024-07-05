@@ -21,12 +21,19 @@ function App() {
 
   const loadData = async () => {
     try {
-      const response = await fetch('https://kelvinsuarez.github.io/rfm-analysis-visualization-react/data/rfmData.json');
+      const response = await fetch('https://kelvinsuarez.github.io/rfm-analysis-visualization-react/data/rfmData.csv');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      renderChart(data);
+      const data = await response.text();
+      Papa.parse(data, {
+        header: true,
+        dynamicTyping: true,
+        complete: (results) => {
+          renderChart(results.data);
+        },
+      });
+      //renderChart(data);
     } catch (error) {
       console.error('Error al cargar los datos', error);
     }
@@ -91,7 +98,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="root">
+      <div className="root">      
         <Header/>
         <Main
           loadData={loadData}
