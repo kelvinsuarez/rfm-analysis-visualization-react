@@ -6,7 +6,7 @@ const TableauVisualization = () => {
     scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
     scriptElement.async = true;
 
-    const divElement = document.getElementById('viz1720194417326');
+    const divElement = document.getElementById('viz1720205903110');
     const vizElement = divElement.getElementsByTagName('object')[0];
 
     const adjustVizSize = () => {
@@ -18,7 +18,7 @@ const TableauVisualization = () => {
         vizElement.style.height = divElement.offsetWidth * 0.75 + 'px';
       } else {
         vizElement.style.width = '100%';
-        vizElement.style.height = '1477px';
+        vizElement.style.height = '1077px';
       }
     };
 
@@ -35,14 +35,14 @@ const TableauVisualization = () => {
   return (
     <div
       className="tableauPlaceholder tableau-data"
-      id="viz1720194417326"
+      id="viz1720205903110"
       style={{ position: 'relative' }}
     >
       <noscript>
         <a href="#">
           <img
             alt="Dashboard 1"
-            src="https://public.tableau.com/static/images/Da/Dashboard_sprint_12/Dashboard1/1_rss.png"
+            src="https://public.tableau.com/static/images/3N/3N39CW7S3/1_rss.png"
             style={{ border: 'none' }}
           />
         </a>
@@ -50,13 +50,11 @@ const TableauVisualization = () => {
       <object className="tableauViz" style={{ display: 'none' }}>
         <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
         <param name="embed_code_version" value="3" />
-        <param name="site_root" value="" />
-        <param name="name" value="Dashboard_sprint_12/Dashboard1" />
-        <param name="tabs" value="no" />
+        <param name="path" value="shared/3N39CW7S3" />
         <param name="toolbar" value="yes" />
         <param
           name="static_image"
-          value="https://public.tableau.com/static/images/Da/Dashboard_sprint_12/Dashboard1/1.png"
+          value="https://public.tableau.com/static/images/3N/3N39CW7S3/1.png"
         />
         <param name="animate_transition" value="yes" />
         <param name="display_static_image" value="yes" />
