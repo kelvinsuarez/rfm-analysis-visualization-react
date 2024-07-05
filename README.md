@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Visualización RFM con React 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Este proyecto es una aplicación web construida con React para visualizar el análisis RFM (Recency, Frequency, Monetary). El análisis RFM es una técnica utilizada en marketing para evaluar y categorizar a los clientes en función de sus comportamientos de compra. La aplicación permite cargar datos desde archivos JSON o CSV y muestra un dashboard de Tableau embebido para visualizaciones adicionales.
 
-In the project directory, you can run:
+Funciones Principales
+Carga de Datos
+La aplicación permite cargar datos RFM desde archivos en formato JSON o CSV. Los datos se utilizan para crear gráficos que representan los tres componentes del análisis RFM: Recency, Frequency y Monetary.
 
-### `npm start`
+Dashboard de Tableau
+La aplicación incluye un componente para mostrar un dashboard de Tableau embebido, lo que permite visualizar datos de manera interactiva y detallada directamente en la aplicación.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Componentes React Modulares
+El código está organizado en componentes modulares de React, lo que facilita la gestión y la extensión de la aplicación.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Detalles de los Componentes
+App.js
+Descripción: Es el componente principal que maneja la lógica de carga de datos y la visualización de los gráficos y el dashboard de Tableau.
+Funciones Clave:
+loadData: Función para cargar datos desde un archivo JSON.
+handleFileUpload: Función para manejar la carga de archivos JSON o CSV.
+renderChart: Función para renderizar los gráficos basados en los datos cargados.
+Header.js
+Descripción: Componente para el encabezado de la aplicación.
+Funciones Clave: Presenta el título de la aplicación.
+Footer.js
+Descripción: Componente para el pie de página de la aplicación.
+Funciones Clave: Muestra el logotipo y los nombres de los colaboradores del proyecto.
+TableauDashboard.js
+Descripción: Componente que renderiza el dashboard de Tableau embebido.
+Funciones Clave: Alterna la visualización del dashboard de Tableau embebido.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enlace directo: https://kelvinsuarez.github.io/rfm-analysis-visualization-react/ 
