@@ -63,11 +63,11 @@ function App() {
   };
 
   const renderChart = (rfmData) => {
-    const labels = rfmData.map((customer, index) => `Cliente ${customer.customerID || index + 1}`);
+    const labels = rfmData.map(customer => customer.cluster);
     const recencyData = rfmData.map(customer => customer.recency);
     const frequencyData = rfmData.map(customer => customer.frequency);
     const monetaryData = rfmData.map(customer => customer.monetary);
-
+  
     setChartData({
       labels: labels,
       datasets: [
