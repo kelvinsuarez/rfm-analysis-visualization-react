@@ -1,0 +1,4 @@
+cluster,recency,frequency,monetary,description
+oro,39.88,102.21,1819.17,clientes que han comprado recientemente, compran con frecuencia y gastan mucho
+plata,113.57,24.05,247.81,clientes intermedios
+bronce,60.69,63.73,856.26,clientes que no han comprado recientemente, compran con poca frecuencia y gastan poco
